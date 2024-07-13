@@ -1,0 +1,6 @@
+# Default values for argocd-notifications-cm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+notifications:
+  path: "notifications/**.yaml"

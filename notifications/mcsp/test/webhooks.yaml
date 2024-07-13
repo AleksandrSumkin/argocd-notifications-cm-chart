@@ -1,0 +1,17 @@
+template.my-custom-template: |
+  message: |
+    Application details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.
+
+template.my-custom-template-slack-template: |
+  message: |
+    Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}.
+    Application details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.
+  email:
+    subject: Application {{.app.metadata.name}} sync status is {{.app.status.sync.status}}
+  slack:
+    attachments: |
+      [{
+        "title": "{{.app.metadata.name}}",
+        "title_link": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+        "color": "#18be52"
+      }]
