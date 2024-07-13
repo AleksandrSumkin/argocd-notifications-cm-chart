@@ -2,8 +2,15 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "argocd-notifications-cm.fullname" . }}
+    {{- if .Values.annotations }}
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
+    {{- end }}
   labels:
     {{- include "argocd-notifications-cm.labels" . | nindent 4 }}
+    {{- if .Values.labels }}
+    {{- toYaml .Values.labels | nindent 4 }}
+    {{- end }}
 data:
 {{- $currentScope := .}}
 {{- $notificationsPath := .Values.notifications.path  }}

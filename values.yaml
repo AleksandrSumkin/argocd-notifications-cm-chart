@@ -4,3 +4,9 @@
 
 notifications:
   path: "notifications/**.yaml"
+
+annotations: {}
+  # annotation1: annotation1value
+
+labels: {}
+  # label1: labelvalue1
